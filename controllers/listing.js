@@ -9,6 +9,14 @@ module.exports.newRoute = (req, res) => {
     res.render("listings/new.ejs");
 };
 
+
+module.exports.search = async (req, res) => {
+    const country=req.body;
+    console.log(country);
+    const allListings = await Listing.find({country:country});
+    res.render("listings/index.ejs", { allListings });
+};
+
 module.exports.showRoute = async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id)

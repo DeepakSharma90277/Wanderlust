@@ -21,6 +21,7 @@ router.route('/')
 // new route
 router.get('/new', isLoggedIn, listingController.newRoute);
 
+router.post('/search',listingController.newRoute);
 router.route('/:id')
   .get(wrapAsync(listingController.showRoute))
   .put(isLoggedIn, 

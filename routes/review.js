@@ -7,7 +7,7 @@ const reviewController = require("../controllers/review.js");
 // Validation for reviewSchema Middleware Function
 
 // post review route
-router.post("/",isLoggedIn , validateReview,wrapAsync(reviewController.postReview));
+router.post("/",isLoggedIn,validateReview,wrapAsync(reviewController.postReview));
 
 // delete review route 
 router.delete("/:reviewId",isLoggedIn,isReviewAuthor,wrapAsync(reviewController.deleteReview));
